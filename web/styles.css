@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #1f2933;
+}
+
+header {
+    background: #1f4e5f;
+    color: white;
+    padding: 30px 40px;
+}
+
+header h1 {
+    margin: 0 0 8px;
+}
+
+header p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.patients-section,
+.form-section {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+button {
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#addPatientButton {
+    background: #1f4e5f;
+    color: white;
+}
+
+.patient-card {
+    border: 1px solid #d9dee3;
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 12px;
+}
+
+.patient-card h3 {
+    margin: 0 0 8px;
+}
+
+.patient-card p {
+    margin: 5px 0;
+    color: #52606d;
+}
+
+.form-section {
+    margin-top: 25px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd2d9;
+    border-radius: 6px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.form-actions button[type="submit"] {
+    background: #2f855a;
+    color: white;
+}
+
+#cancelButton {
+    background: #e4e7eb;
+}
+
+.hidden {
+    display: none;
+}
+
+#loading {
+    color: #52606d;
+}
+
+#message {
+    margin-top: 20px;
+    font-weight: bold;
+}
