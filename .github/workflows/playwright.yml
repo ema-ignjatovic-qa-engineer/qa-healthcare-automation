@@ -35,7 +35,19 @@ jobs:
           password: postgres
           database: qa_healthcare
 
+      - name: Initialize database
+        env:
+          PGPASSWORD: postgres
+        run: |
+          psql -h localhost -U postgres -d qa_healthcare -f db/init.sql
+
       - name: Start API
+        env:
+          DB_HOST: localhost
+          DB_PORT: 5432
+          DB_NAME: qa_healthcare
+          DB_USER: postgres
+          DB_PASSWORD: postgres
         run: |
           npm start > api.log 2>&1 &
           sleep 3
