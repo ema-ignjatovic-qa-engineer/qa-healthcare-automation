@@ -53,7 +53,14 @@ jobs:
           sleep 3
 
       - name: Run Playwright tests
-        run: npx playwright test
+        env:
+          DB_HOST: localhost
+          DB_PORT: 5432
+          DB_NAME: qa_healthcare
+          DB_USER: postgres
+          DB_PASSWORD: postgres
+        run: |
+          npx playwright test
 
       - name: Upload Playwright report
         if: always()
