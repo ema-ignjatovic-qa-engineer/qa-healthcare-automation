@@ -120,3 +120,73 @@ patientForm.addEventListener('submit', async (event) => {
 
 // Initial page load
 loadPatients();
+const payButton = document.getElementById('payButton');
+const paymentMethod = document.getElementById('paymentMethod');
+const paymentAmount = document.getElementById('paymentAmount');
+const paymentStatus = document.getElementById('paymentStatus');
+const paymentResult = document.getElementById('paymentResult');
+
+payButton.addEventListener('click', async () => {
+    const method = paymentMethod.value;
+    const amount = Number(paymentAmount.value);
+    const result = paymentResult.value;
+
+    if (!method) {
+        paymentStatus.textContent = 'Please select a payment method.';
+        return;
+    }
+
+    if (!amount || amount <= 0) {
+        paymentStatus.textContent = 'Please enter a valid payment amount.';
+        return;
+    }
+
+    paymentStatus.textContent = 'Processing payment...';
+
+    try {
+        const response = await fetch('/api/payments', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                orderId: 'ORD-1001',
+                amount: amount,
+                paymentMethod: method,
+                simulatedResult: result
+            })
+        });
+
+        const payment = await response.json();
+
+        if (!response.ok) {
+            paymentStatus.textContent = payment.error || 'Payment failed';
+            return;
+        }
+
+        switch (payment.status) {
+            case 'CAPTURED':
+                paymentStatus.textContent = 'Payment successful';
+                break;
+
+            case 'DECLINED':
+                paymentStatus.textContent = 'Payment declined';
+                break;
+
+            case 'TIMEOUT':
+                paymentStatus.textContent = 'Payment timeout';
+                break;
+
+            case 'ERROR':
+                paymentStatus.textContent = 'Payment failed: processor error';
+                break;
+
+            default:
+                paymentStatus.textContent = 'Unknown payment status';
+        }
+
+    } catch (error) {
+        console.error('Payment request failed:', error);
+        paymentStatus.textContent = 'Payment request failed';
+    }
+});

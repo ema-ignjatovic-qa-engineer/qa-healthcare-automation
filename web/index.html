@@ -102,7 +102,67 @@
             </form>
 
         </section>
+        <section class="payment-section">
+            <div class="section-header">
+                <h2>POS Payment Simulator</h2>
+            </div>
 
+            <div class="order-summary">
+                <h3>Order ORD-1001</h3>
+
+                <p>Subtotal: $45.00</p>
+                <p>Tax: $5.00</p>
+                <p>Tip: $0.00</p>
+                <p class="total">Total: $50.00</p>
+            </div>
+
+            <div class="form-group">
+                <label for="paymentMethod">Payment Method</label>
+
+                <select id="paymentMethod">
+                    <option value="">Select payment method</option>
+                    <option value="card">Credit / Debit Card</option>
+                    <option value="contactless">Contactless</option>
+                    <option value="cash">Cash</option>
+                    <option value="gift-card">Gift Card</option>
+                    <option value="digital-wallet">Digital Wallet</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="paymentAmount">Payment Amount</label>
+
+                <input
+                    type="number"
+                    id="paymentAmount"
+                    value="50.00"
+                    min="0"
+                    step="0.01"
+                >
+            </div>
+            <div class="form-group">
+                <label for="paymentResult">Simulated Processor Result</label>
+
+                <select id="paymentResult">
+                    <option value="approved">Approved</option>
+                    <option value="declined">Declined</option>
+                    <option value="insufficient-funds">Insufficient Funds</option>
+                    <option value="expired-card">Expired Card</option>
+                    <option value="timeout">Timeout</option>
+                    <option value="processor-error">Processor Error</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="payButton">
+                    Pay $50.00
+                </button>
+            </div>
+
+            <div id="paymentStatus" class="payment-status">
+                Ready for payment
+            </div>
+        </section>
         <div id="message"></div>
 
     </main>

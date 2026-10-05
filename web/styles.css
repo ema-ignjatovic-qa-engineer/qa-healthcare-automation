@@ -121,3 +121,57 @@ button {
     margin-top: 20px;
     font-weight: bold;
 }
+.payment-section {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.payment-section h2 {
+    margin: 0;
+}
+
+.order-summary {
+    background: #f4f6f8;
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 25px;
+}
+
+.order-summary h3 {
+    margin-top: 0;
+}
+
+.order-summary p {
+    margin: 8px 0;
+}
+
+.order-summary .total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.payment-section select,
+.payment-section input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd2d9;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+#payButton {
+    background: #1f4e5f;
+    color: white;
+}
+
+.payment-status {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 6px;
+    background: #e4e7eb;
+    font-weight: bold;
+}
